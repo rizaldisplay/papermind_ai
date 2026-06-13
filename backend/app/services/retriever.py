@@ -3,7 +3,7 @@ from turbovec import IdMapIndex
 from app.db.supabase import get_db_connection
 
 class RetrieverService:
-    def __init__(self, dimension: int = 1536):
+    def __init__(self, dimension: int = 1024):
         self.dimension = dimension
         # Inisialisasi Turbovec dengan kuantisasi 4-bit demi menghemat RAM server
         self.index = IdMapIndex(dim=self.dimension, bit_width=4)
@@ -64,7 +64,7 @@ class RetrieverService:
 
     def search(self, query_vector: list[float], category_filter: str = None, top_k: int = 4) -> list[dict]:
         """Pencarian semantik super cepat menggunakan engine Turbovec."""
-        q_v = np.array([query_vector], dtype=np.numpy.float32)
+        q_v = np.array([query_vector], dtype=np.float32)
         
         # Bangun filter allowlist jika pengguna memilih kategori buku tertentu
         allowlist = None
@@ -74,7 +74,7 @@ class RetrieverService:
                 if meta['category'].lower() == category_filter.lower()
             ]
             if allowed_ids:
-                allowlist = np.array(allowed_ids, dtype=np.numpy.uint64)
+                allowlist = np.array(allowed_ids, dtype=np.uint64)
             else:
                 return [] # Kategori tidak ditemukan dalam basis pengetahuan
 

@@ -9,8 +9,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 
 try:
     conn = psycopg2.connect(
-        DATABASE_URL,
-        sslmode="require"
+        DATABASE_URL
     )
     print("CONNECTED")
 except Exception as e:
@@ -47,7 +46,7 @@ def init_db():
                 content TEXT NOT NULL,
                 page_number INT,
                 chapter TEXT,
-                embedding vector(1536),
+                embedding vector(1024),
                 created_at TIMESTAMPTZ DEFAULT NOW()
             );
         """)

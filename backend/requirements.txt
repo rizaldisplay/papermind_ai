@@ -23,6 +23,7 @@ torch
 
 # Jika embedding OpenAI
 openai
+cohere
 
 # === Document Processing ===
 pymupdf
