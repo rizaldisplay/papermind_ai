@@ -1,0 +1,42 @@
+# === Web Framework ===
+fastapi
+uvicorn[standard]
+
+# === LangChain & RAG ===
+langchain
+langchain-openai
+langchain-community
+langchain-text-splitters
+
+# === Database & Vector Store ===
+sqlalchemy
+psycopg2-binary
+pgvector
+supabase
+
+# === Embedding (pilih salah satu) ===
+
+# Jika embedding lokal
+turbovec
+sentence-transformers
+torch
+
+# Jika embedding OpenAI
+openai
+
+# === Document Processing ===
+pymupdf
+
+# === Config & Validation ===
+python-dotenv
+pydantic
+pydantic-settings
+
+# === File Upload ===
+python-multipart
+
+# === HTTP Client ===
+httpx
+
+# === Streaming Response ===
+sse-starlette
